@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block head %}{% endblock %}
+{% block title %}wellcome{% endblock %}
+{% block content %}
+<div class="container">
+	<h1 class="display-1" > I for Insurance </h1>
+<div >
+      <img class="d-block w-100" src="{{url_for('static', filename='poster1.jpg')}}" alt="Second slide">
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+    <div class="row justify-content-end">
+
+<a class="btn btn-primary btn-lg  m-3  col-6" href='/plans'>join now!</a></div>
+{% endblock %}

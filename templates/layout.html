@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html >
+<style>
+body {
+ background-color:lightblue
+
+}
+
+
+p{
+  color: black;
+  text-align: left;
+}
+p2,p3,p4{color:black;
+}
+p,p2,p3,p4{
+    font-family: verdana, serif;
+  font-size: 14px;
+
+}
+pre{color:darkred;
+
+    font-family: verdana, serif;
+  font-size:20px;
+}
+button{
+   background-color: white;
+   border:2px solid #008CBA;
+   padding:15px 32px;
+   text-aline:center;
+}
+</style>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='bootstrap.css')}}">
+
+    {% block head %}
+        <script type="text/javascript" src="{{url_for('static', filename='bootstrap.bundle.js')}}"></script>
+    {% endblock %}
+	<title>{% block title %}{% endblock %}</title>
+</head>
+<body style="background: lightblue">
+
+<nav class="navbar navbar-expand navbar-light " style="background-color: lightblue;">
+  <div class="container-fluid my-2 border-bottom ">
+    <a class="navbar-brand" href="/">I for Insurance</a>
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sign-in</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/plans">plans</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+More solidarity to build a better world
+      </span>
+    </div>
+ </nav>
+
+
+	<div id="content">
+		{% block content %}{% endblock %}
+	</div>
+	<div id="footer">
+		{% block footer %}{% endblock %}
+
+	</div>
+
+</body>
+</html>

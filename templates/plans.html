@@ -1,0 +1,39 @@
+﻿{% extends 'layout.html' %}
+
+{% block head %}{% endblock %}
+{% block title %}wellcome{% endblock %}
+{% block content %}
+
+<div class="row justify-content-center " >
+      <img class="d-block w-75 rounded " src="{{url_for('static', filename='poster2.png')}}" alt="Second slide">
+    </div>
+
+
+<div class="my-5 mx-5">
+<h1>Plans</h1>
+<p>Our Campany Offers 3 Types Of Plans (Basic, Premium, and Golden)Each kind of plans
+covers a subset of enrolled hospitals. A hospital could be available under more than one
+plan. A customer can purchase more than one plan for himself and his/her dependents.
+However, no individual (a customer / dependent) could be a beneficiary of more than one Plan </p>
+<h2>Types Of Plans:-</h2>
+
+    {% for plan in data %}
+    <pre>
+
+
+                    *{{ plan[0] }}: <p2>                                                               <a href="/Register?plan={{  plan[0]  }}"><button class="button btn btn-primary" >Purchase</button></a>
+                             Percentage OfCosts Covered Equal {{ plan[1] }} %
+                             Yearly Cost Equal {{ plan[2] }} $</p2>
+
+         </pre>
+			{% endfor %}
+</div>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+
+
+
+
