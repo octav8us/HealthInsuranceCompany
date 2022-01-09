@@ -3,7 +3,7 @@
 {% block head %}{% endblock %}
 {% block title %}sign-up{% endblock %}
 {% block content %}
-
+    <form action="/newcus" method="POST">
 <section class="h-100 h-custom gradient-custom-2">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -17,8 +17,8 @@
 
                   <div class="mb-4 pb-2">
                     <select name="gender" class="select">
-                      <option value="1">male</option>
-                      <option value="2">female</option>
+                      <option value="male">male</option>
+                      <option value="female">female</option>
 
                     </select>
                   </div>
@@ -27,7 +27,7 @@
                     <div class="col-md-6 mb-4 pb-2">
 
                       <div class="form-outline">
-                        <input type="text" name="First name" class="form-control form-control-lg" />
+                        <input type="text" name="first_name" class="form-control form-control-lg" />
                         <label class="form-label" for="form3Examplev2" >First name</label>
                       </div>
 
@@ -35,17 +35,17 @@
                     <div class="col-md-6 mb-4 pb-2">
 
                       <div class="form-outline">
-                        <input type="text" name="Middle name" class="form-control form-control-lg" />
+                        <input type="text" name="middle_name" class="form-control form-control-lg" />
                         <label class="form-label" for="form3Examplev3">Middle name</label>
                       </div>
 
                     </div>
                   </div>
                       <div class="row">
-                    <div class="col-md-6 mb-4 pb-2">
+                    <div class="col-6 mb-4 pb-2">
 
                       <div class="form-outline">
-                        <input type="text" name="last name" class="form-control form-control-lg" />
+                        <input type="text" name="last_name" class="form-control form-control-lg" />
                         <label class="form-label" for="form3Examplev2">last name</label>
                       </div>
 
@@ -55,10 +55,16 @@
 
 
 
-                  <div class="mb-4 pb-2">
+                  <div class="mb-4 pb-2 col-6">
                     <div class="form-outline">
-                      <input type="text" id="form3Examplev4" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Examplev4">Position</label>
+                      <input type="text" name="home_number"  class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Examplev4">Home number</label>
+                    </div>
+                  </div>
+                  <div class="mb-4 pb-2 col-6">
+                    <div class="form-outline">
+                      <input type="text" name="Phone_number"  class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Examplev4">Phone number</label>
                     </div>
                   </div>
 
@@ -66,18 +72,19 @@
                     <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
 
                       <div class="form-outline">
-                        <input type="text" id="form3Examplev5" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplev5">Bussines Arena</label>
+                        <input type="text" name="ssn" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplev5">SSN</label>
                       </div>
 
                     </div>
                     <div class="col-md-6">
 
-                      <select class="select">
-                        <option value="1">Employees</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
+                      <input type="radio" id="html" name="plans" value="basic" {% if 'Basic' in plan %} checked="checked" {% endif %}     >
+                        <label for="html">Basic</label><br>
+                        <input type="radio" id="css" name="plans" value="golden" {% if 'Golden' in plan %}checked="checked"{% endif %}     >
+                        <label for="css">Golden</label><br>
+                        <input type="radio" id="javascript" name="plans" value="premuim"{% if 'Premium' in plan%}checked="checked"{% endif %}     >
+                        <label for="javascript">Premuim</label>
                       </select>
 
                     </div>
@@ -87,19 +94,18 @@
               </div>
               <div class="col-lg-6 bg-info text-black">
                 <div class="p-5">
-                  <h3 class="fw-normal mb-5">Contact Details</h3>
 
                   <div class="mb-4 pb-2">
                     <div class="form-outline form-white">
-                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Examplea2">Street + Nr</label>
+                      <input type="text" name="city" class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Examplea2">city</label>
                     </div>
                   </div>
 
                   <div class="mb-4 pb-2">
                     <div class="form-outline form-white">
-                      <input type="text" id="form3Examplea3" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Examplea3">Additional Information</label>
+                      <input type="text" name="state" class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Examplea3">State</label>
                     </div>
                   </div>
 
@@ -107,7 +113,7 @@
                     <div class="col-md-5 mb-4 pb-2">
 
                       <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea4" class="form-control form-control-lg" />
+                        <input type="text" name="zip" class="form-control form-control-lg" />
                         <label class="form-label" for="form3Examplea4">Zip Code</label>
                       </div>
 
@@ -115,8 +121,26 @@
                     <div class="col-md-7 mb-4 pb-2">
 
                       <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea5" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplea5">Place</label>
+                        <input type="text" name="street_name" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplea5">Street name</label>
+                      </div>
+
+                    </div>
+                  </div>
+                    <div class="row">
+                    <div class="col-md-5 mb-4 pb-2">
+
+                      <div class="form-outline form-white">
+                        <input type="text" name="street_number" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplea4">Street number</label>
+                      </div>
+
+                    </div>
+                    <div class="col-md-7 mb-4 pb-2">
+
+                      <div class="form-outline form-white">
+                        <input type="text" name="apartment_number" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplea5">Apartment number</label>
                       </div>
 
                     </div>
@@ -124,25 +148,18 @@
 
                   <div class="mb-4 pb-2">
                     <div class="form-outline form-white">
-                      <input type="text" id="form3Examplea6" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Examplea6">Country</label>
+                      <input type="date" name="birth_date" class="form-control form-control-lg" />
+                      <label class="form-label" for="form3Examplea6">Birth_date</label>
                     </div>
                   </div>
 
                   <div class="row">
-                    <div class="col-md-5 mb-4 pb-2">
+
+                    <div class="col-9 mb-4 pb-2">
 
                       <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea7" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplea7">Code +</label>
-                      </div>
-
-                    </div>
-                    <div class="col-md-7 mb-4 pb-2">
-
-                      <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea8" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplea8">Phone Number</label>
+                        <input type="text" name="job" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Examplea8">job</label>
                       </div>
 
                     </div>
@@ -150,7 +167,7 @@
 
                   <div class="mb-4">
                     <div class="form-outline form-white">
-                      <input type="text" id="form3Examplea9" class="form-control form-control-lg" />
+                      <input type="text" name="email" class="form-control form-control-lg" />
                       <label class="form-label" for="form3Examplea9">Your Email</label>
                     </div>
                   </div>
@@ -166,8 +183,7 @@
                       I do accept the <a href="#!" class="text-white"><u>Terms and Conditions</u></a> of your site.
                     </label>
                   </div>
-
-                  <button type="button" class="btn btn-light btn-lg" data-mdb-ripple-color="dark">Register</button>
+                <input type="submit" class="btn btn-light btn-lg"  value="Submit"/>
 
                 </div>
               </div>
@@ -178,7 +194,7 @@
     </div>
   </div>
 </section>
-
+</form>
 {% endblock %}
 
 {% block footer %}
